@@ -1,7 +1,5 @@
 # About
 
-一直考虑写一个功能齐全的完整Nodejs项目，但苦于没有找到合适的类型，而且后台系统无法直观的感受到，需要有一个前台项目配合，因此迟迟没有动笔。恰好前一段时间开源了一个[vue前端项目](https://github.com/bailicangdu/vue2-elm)，便以此为契机构筑了后台系统，并提供配套的[后台管理系统](https://github.com/bailicangdu/vue2-manage)。
-
 因为前端项目是根据饿了么官网接口写的，所以后台系统也保持了和官网一致的API接口。
 
 整个项目分为两部分：前台项目接口、后台管理接口，共60多个。涉及登陆、注册、添加商品、商品展示、筛选排序、购物车、下单、用户中心等，构成一个完整的流程。
@@ -25,8 +23,6 @@ __注：此项目纯属个人瞎搞，不用于任何商业用途。__
 
 >  相关项目地址：[前端项目地址](https://github.com/bailicangdu/vue2-elm)  、 [后台管理系统地址](https://github.com/bailicangdu/back-manage)
 
->  接下来的开源项目[react-native 构建的原生APP](https://github.com/bailicangdu/RN-elm)也是以此后台系统作为基础，因为APP拥有更多功能以及细粒度的操作，因此后台系统会不断扩展更多接口和功能。
-
 ## 技术栈
 
 nodejs + express + mongodb + mongoose + es6/7 + vue + element-ui
@@ -34,27 +30,33 @@ nodejs + express + mongodb + mongoose + es6/7 + vue + element-ui
 
 ## 项目运行
 
+```
+项目运行之前，请确保系统已经安装以下应用
+1、node (6.0 及以上版本)
+2、mongodb (开启状态)
+3、GraphicsMagick (裁切图片)
+```
 
 ```
 git clone https://github.com/bailicangdu/node-elm  
 
 cd node-elm
 
-npm install
+npm install 或 yarn(推荐)
 
-npm run dev (需先开启mongodb)
+npm run dev
 
-访问: http://localhost:8001
+访问: http://localhost:8001（如果已启动前台程序，则不需打开此地址）
 
 ```
 
 
-# 效果演示
+## 效果演示
 
 #### (可在后台管理系统添加商铺，食品等数据，并在前端地址查看效果)
 
 ### 前端网址
-[前端网址戳这里](http://cangdu.org:8001/)（请用chrome手机模式预览）
+[前端网址戳这里](http://cangdu.org/elm/)（请用chrome手机模式预览）
 
 ###### 移动端扫描下方二维码
 
@@ -98,8 +100,7 @@ npm run dev (需先开启mongodb)
 - [x] 部署上线 -- 完成
 
 
-
-# API接口文档
+## API接口文档
 
 ## [接口文档地址](https://github.com/bailicangdu/node-elm/blob/master/API.md)
 
@@ -122,7 +123,7 @@ npm run dev (需先开启mongodb)
 
 
 
-# 项目布局
+## 项目布局
 
 ```
 .
@@ -173,7 +174,7 @@ npm run dev (需先开启mongodb)
 │   │   └── explain.js              解析说明
 │   └── v4
 ├── logs                            日志文件
-├── middlewares                     中间价
+├── middlewares                     中间件
 │   ├── check.js                    权限验证    
 │   └── statistic.js                API数据统计
 ├── models                          模型(数据库)
@@ -247,11 +248,6 @@ npm run dev (需先开启mongodb)
 
 ```
 
-
-
-
-# License
+## License
 
 [GPL](https://github.com/bailicangdu/node-elm/blob/master/COPYING)
-
-

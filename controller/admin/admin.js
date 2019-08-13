@@ -211,7 +211,7 @@ class Admin extends AddressComponent {
 	async getAdminInfo(req, res, next){
 		const admin_id = req.session.admin_id;
 		if (!admin_id || !Number(admin_id)) {
-			console.log('获取管理员信息的session失效');
+			// console.log('获取管理员信息的session失效');
 			res.send({
 				status: 0,
 				type: 'ERROR_SESSION',
@@ -251,12 +251,13 @@ class Admin extends AddressComponent {
 		}
 
 		try{
-			const image_path = await this.qiniu(req);
+			const image_path = await this.getPath(req);
 			await AdminModel.findOneAndUpdate({id: admin_id}, {$set: {avatar: image_path}});
 			res.send({
 				status: 1,
 				image_path,
 			})
+			return
 		}catch(err){
 			console.log('上传图片失败', err);
 			res.send({
@@ -264,6 +265,7 @@ class Admin extends AddressComponent {
 				type: 'ERROR_UPLOAD_IMG',
 				message: '上传图片失败'
 			})
+			return
 		}
 	}
 }
